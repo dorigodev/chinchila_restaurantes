@@ -34,7 +34,7 @@ def escolher_opcoes():
         opcao_invalida()
 
 
-
+''' oi né'''
 def finalizar_app():
     os.system('cls')
     print("Saindo do app")
