@@ -1,18 +1,59 @@
 import os
 
+restaurantes = []
+
 def exibir_nome():
-  print("Restaurante Top")
+  print("""
+░█████╗░██╗░░██╗██╗███╗░░██╗░█████╗░██╗░░██╗██╗██╗░░░░░░█████╗░
+██╔══██╗██║░░██║██║████╗░██║██╔══██╗██║░░██║██║██║░░░░░██╔══██╗
+██║░░╚═╝███████║██║██╔██╗██║██║░░╚═╝███████║██║██║░░░░░███████║
+██║░░██╗██╔══██║██║██║╚████║██║░░██╗██╔══██║██║██║░░░░░██╔══██║
+╚█████╔╝██║░░██║██║██║░╚███║╚█████╔╝██║░░██║██║███████╗██║░░██║
+░╚════╝░╚═╝░░╚═╝╚═╝╚═╝░░╚══╝░╚════╝░╚═╝░░╚═╝╚═╝╚══════╝╚═╝░░╚═╝
+
+██████╗░███████╗░██████╗████████╗░█████╗░██╗░░░██╗██████╗░░█████╗░███╗░░██╗████████╗███████╗░██████╗
+██╔══██╗██╔════╝██╔════╝╚══██╔══╝██╔══██╗██║░░░██║██╔══██╗██╔══██╗████╗░██║╚══██╔══╝██╔════╝██╔════╝
+██████╔╝█████╗░░╚█████╗░░░░██║░░░███████║██║░░░██║██████╔╝███████║██╔██╗██║░░░██║░░░█████╗░░╚█████╗░
+██╔══██╗██╔══╝░░░╚═══██╗░░░██║░░░██╔══██║██║░░░██║██╔══██╗██╔══██║██║╚████║░░░██║░░░██╔══╝░░░╚═══██╗
+██║░░██║███████╗██████╔╝░░░██║░░░██║░░██║╚██████╔╝██║░░██║██║░░██║██║░╚███║░░░██║░░░███████╗██████╔╝
+╚═╝░░╚═╝╚══════╝╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝░╚═════╝░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝░░░╚═╝░░░╚══════╝╚═════╝░
+        """)
 
 def exibir_opcoes():
     print("1. Cadastrar restaurante.")
     print("2. Listar restaurantes")
     print("3. Ativar restaurante")
     print("4. Sair\n")
+    
+def voltar_ao_menu_principal():
+    input("Digite uma tecla para voltar ao menu principal\n")
+    print()
+    main()
+
+def imprimir_subtitulo(texto):
+    print(texto)
+    
+
+def cadastrar_restaurantes():
+    imprimir_subtitulo("Cadastrando novo resturante\n")
+    os.system('cls')
+    nome_do_restaurante = input("Digite o nome do restaurante que deseja cadastrar:\n")
+    restaurantes.append(nome_do_restaurante)
+    print(f"Restaurante {nome_do_restaurante} cadastrado com sucesso")
+    voltar_ao_menu_principal()
+    
+def listar_restaurantes():
+    os.system('cls')
+    imprimir_subtitulo('Listando novos restaurantes')
+    for nomes in restaurantes:
+        print(nomes)
+    voltar_ao_menu_principal()
 
 def opcao_invalida():
-    print('opção invalidade!')
-    input('Digite uma tecla para voltar ao menu principal')
-    main()
+    imprimir_subtitulo('opção invalida!')
+    voltar_ao_menu_principal()
+
+
 
 def escolher_opcoes():
     try:
@@ -21,9 +62,9 @@ def escolher_opcoes():
         
         match opcao_escolhida:
             case 1:
-                print('Cadastrando restauerante')
+                cadastrar_restaurantes()
             case 2:
-                print("Listando restaurantes")
+                listar_restaurantes()
             case 3:
                 print("Ativando Restaurante")
             case 4:
@@ -37,7 +78,7 @@ def escolher_opcoes():
 ''' oi né'''
 def finalizar_app():
     os.system('cls')
-    print("Saindo do app")
+    imprimir_subtitulo("Saindo do app")
 
 
 ''' if (opcao_escolhida == 1):
