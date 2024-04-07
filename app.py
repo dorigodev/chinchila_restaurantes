@@ -42,12 +42,15 @@ def imprimir_subtitulo(texto):
     
 
 def cadastrar_restaurantes():
-    imprimir_subtitulo("Cadastrando novo resturante\n")
-    nome_do_restaurante = input('Digite o nome do restaurante que deseja cadastrar: ')
-    categoria = input(f'Digite o nome da categoria do restaurante {nome_do_restaurante}: ')
-    dados_do_restaurante = {'nome':nome_do_restaurante, 'categoria':categoria, 'ativo':False}
-    restaurantes.append(dados_do_restaurante)
-    print(f'O restaurante {nome_do_restaurante} foi cadastrado com sucesso!')
+    imprimir_subtitulo("Cadastrando novo restaurante\n")
+    os.system('cls' if os.name == 'nt' else 'clear')  # Melhoria para funcionar em todos os sistemas operacionais
+    nome_do_restaurante = input("Digite o nome do restaurante que deseja cadastrar:\n")
+    categoria_do_restaurante = input(f'Digite a categoria do restaurante {nome_do_restaurante}:\n')
+    dados_do_retaurante = {'nome': nome_do_restaurante, 'categoria': categoria_do_restaurante, 'ativo': False}  # Correção aqui
+    restaurantes.append(dados_do_retaurante)
+    print(restaurantes)
+    print(f"Restaurante {nome_do_restaurante} cadastrado com sucesso")
+    voltar_ao_menu_principal()
     
     voltar_ao_menu_principal()
     
